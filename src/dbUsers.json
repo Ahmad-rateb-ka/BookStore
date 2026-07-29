@@ -1,0 +1,71 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userName": "ali ahmed",
+      "email": "ali@example.com",
+      "password": "123",
+      "fullName": "Ali Ahmed",
+      "avatar": "/images/user1.jpg",
+      "Job": "Researcher ",
+      "feedback": "This bookstore warehouse is an absolute gem for all book lovers! Their massive collection spans every genre imaginable, and everything is perfectly organized. My order arrived incredibly fast, beautifully packaged, and in pristine condition—I highly recommend them!",
+      "ISBNs": []
+    },
+    {
+      "id": "2",
+      "userName": "Mazen omer",
+      "email": "mazen@example.com",
+      "password": "password456",
+      "fullName": "مازن عمر",
+      "avatar": "/images/user2.jpg",
+      "Job": "عالم ",
+      "feedback": "ممتن جداً لوجود مثل هذا المخزن الاحترافي الذي يوفر نوادر الكتب والموسوعات. الموقع الإلكتروني سلس وسريع في تصفح الأقسام المتنوعة وإتمام عملية الدفع بأمان. أنصح الجميع بالتعامل معهم دون تردد بفضل مصداقيتهم العالية وسرعة استجابتهم.",
+      "ISBNs": []
+    },
+    {
+      "id": "3",
+      "userName": "nour yassin",
+      "email": "nour@example.com",
+      "password": "password789",
+      "fullName": "Nour Yassin",
+      "avatar": "/images/user3.jpg",
+      "Job": "Writer ",
+      "feedback": "Exceptional customer service and a seamless online shopping experience from start to finish. They offer hard-to-find titles at unbeatable prices, making it my go-to store for building my library. A truly outstanding business that cares about readers.",
+      "ISBNs": []
+    },
+    {
+      "id": "4",
+      "userName": "Jamal Ali",
+      "email": "ali@example.com",
+      "password": "password123",
+      "fullName": "  سامر عباس",
+      "avatar": "/images/user4.jpg",
+      "Job": "مهندس برمجيات ",
+      "feedback": "تجربة شراء استثنائية بكل المقاييس من هذا المتجر المتميز. خدمة العملاء ودودة للغاية ومتعاونة في ترشيح العناوين المميزة والكتب الأكثر مبيعاً. الأسعار تنافسية جداً مقارنة بالمتاجر الأخرى، وجودة طباعة الكتب أصلية وممتازة وتستحق كل ريال.",
+      "ISBNs": []
+    },
+    {
+      "id": "5",
+      "userName": "Majd Smaer",
+      "email": "mazen@example.com",
+      "password": "password456",
+      "fullName": "Majd Omer",
+      "avatar": "/images/user5.jpg",
+      "Job": "Teacher ",
+      "feedback": "I am thoroughly impressed by the top-notch quality and professionalism of this store. The books arrived exactly as described, and the delivery updates kept me informed the whole time. Five stars all the way for their amazing efficiency and great deals!",
+      "ISBNs": []
+    },
+    {
+      "id": "6",
+      "userName": "Ahmad Fadi",
+      "email": "nour@example.com",
+      "password": "password789",
+      "fullName": "أحمد الفادي",
+      "avatar": "/images/user6.jpg",
+      "Job": "مشرف",
+      "feedback": "هذا المخزن هو الجنة الحقيقية لكل عشاق القراءة والكتب! يتميز بتنظيم داخلي رائع يسهل عملية البحث عن الروايات والإصدارات الحديثة والقديمة. سرعة التوصيل لديهم مذهلة، والتغليف كان ممتازاً يحمي الكتب من أي تلف، بالتأكيد سأكرر التجربة دائماً.",
+      "ISBNs": []
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
