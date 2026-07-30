@@ -30,9 +30,9 @@ function Navbar() {
       </div>
       <div className="eles-nav">
         <div className="spans-nav" onClick={handleShow}>
-          <span onClick={handleShow}></span>
-          <span onClick={handleShow}></span>
-          <span onClick={handleShow}></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
         <ul className={`${isVisNav ? "show" : ""}`}>
           <li

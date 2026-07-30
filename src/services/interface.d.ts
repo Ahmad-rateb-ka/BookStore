@@ -26,10 +26,6 @@ export interface Book {
   isBorrowed: boolean;
 }
 
-export interface EditProps {
-  setIsModelOpen: (open: boolean) => void;
-}
-
 export interface EditUserDialogProps {
   open: boolean;
   formData: Book;

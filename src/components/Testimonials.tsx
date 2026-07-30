@@ -1,22 +1,10 @@
-import axios from "axios";
 import { FaStar } from "react-icons/fa";
-import { API_URL } from "../services/global";
-import { useQuery } from "@tanstack/react-query";
 import type { User } from "../services/interface";
 import { useTranslation } from "react-i18next";
+import { useGetUsers } from "../repo/BookRepo";
 function Testimonials() {
-  const fetchUsers = async () => {
-    const response = await axios.get(API_URL);
-    return response.data;
-  };
-
-  const { data: users = [] } = useQuery<User[]>({
-    queryKey: ["Users"],
-    queryFn: fetchUsers,
-    refetchInterval: 1000,
-    refetchIntervalInBackground: true,
-  });
   const { t } = useTranslation();
+  const { data: users = [] } = useGetUsers();
   return (
     <>
       <div className="Testimonials section" id="Testimonials">

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/home.js";
-import Login from "./components/login.js";
+import Home from "./pages/home.js";
+import Login from "./pages/login.js";
 import "./i18n.js";
-import Resultes from "./components/Resultes.js";
-import BorrowedBooks from "./components/BorrowedBooks.js";
-import Admin from "./components/admin.js";
+import Resultes from "./pages/Resultes.js";
+import BorrowedBooks from "./pages/BorrowedBooks.js";
+import Admin from "./pages/admin.js";
 
 function App() {
   return (

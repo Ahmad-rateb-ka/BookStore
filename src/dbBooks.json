@@ -17,7 +17,7 @@
       "cover_image_url": "/images/ابن خلدون.jpeg",
       "description": "كتاب ومؤلف يعد مؤسس علم الاجتماع وأول من وضع أسسه الحديثة. في علم الحضارة الاجتماعيم منة من خلا ل العديد من الأبحاث",
       "rating": 4.8,
-      "isBorrowed": true
+      "isBorrowed": false
     },
     {
       "id": "2",
@@ -74,7 +74,7 @@
       "cover_image_url": "/images/سائق البامبو.jpeg",
       "description": "رواية حائزة على الجائزة العالمية للرواية العربية، تناقش مسألة الهوية والانتماء من خلال بطل كويتي-فلبيني.",
       "rating": 4.6,
-      "isBorrowed": true
+      "isBorrowed": false
     },
     {
       "id": "5",

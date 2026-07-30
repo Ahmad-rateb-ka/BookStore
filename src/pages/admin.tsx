@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useRef, useState } from "react";
 import type { Book } from "../services/interface";
-import { useAddBook, useDeleteBook } from "../services/userRepo";
-import { numberOfBook } from "../services/userRepo";
+import { useAddBook, useDeleteBook } from "../repo/BookRepo";
 
 const Admin = () => {
   const { t } = useTranslation();
@@ -42,11 +41,8 @@ const Admin = () => {
       });
     }
 
-    const a = async () => {
-      return await numberOfBook();
-    };
     const bookData: Book = {
-      id: String(a),
+      id: "",
       title: formData.get("title") as string,
       author: formData.get("auth") as string,
       isbn: Number(formData.get("isbn")),
@@ -67,12 +63,9 @@ const Admin = () => {
   }
   const [isbn, setIsbn] = useState<string>("");
   const handleDelete = () => {
-    if(isbn !=  "")
-    {
+    if (isbn != "") {
       DeleteBook(Number(isbn));
-    }
-    else
-    {
+    } else {
       alert("Dont't Leave The ISBN filed Empty");
     }
   };

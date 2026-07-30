@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../services/AuthContext";
+import { useAuth } from "../context/AuthContext";
 function MainSection() {
   const { t } = useTranslation();
 

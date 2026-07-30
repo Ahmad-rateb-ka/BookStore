@@ -1,15 +1,12 @@
-import axios from "axios";
-import { API_books } from "../services/global";
 import { useState } from "react";
 import type { Book } from "../services/interface";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
-import "../services/master.css";
+import "../style/master.css";
 import { useTranslation } from "react-i18next";
-import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
-import { borrowtheBook } from "../services/userRepo";
-
+import { useBorrowtheBook, useFetchBooks } from "../repo/BookRepo";
+import { useBookDetails } from "../repo/BookRepo";
 import {
   Box,
   Button,
@@ -21,40 +18,19 @@ import {
   Typography,
 } from "@mui/material";
 function Cards() {
-  const FetchBooks = async () => {
-    const response = await axios.get(API_books);
-    return response.data;
-  };
-
-  const { data: books = [] } = useQuery<Book[]>({
-    queryKey: ["books"],
-    queryFn: FetchBooks,
-    refetchInterval: 1000,
-    refetchIntervalInBackground: true,
-  });
-
   const { t, i18n } = useTranslation();
   const [isDiaologOpen, setIsDialogOpen] = useState(false);
-
+  const { data: Books = [] } = useFetchBooks();
   const [idBook, SetIdBook] = useState<string>("");
   const handleOpenDialog = (id: string) => {
     setIsDialogOpen(true);
     SetIdBook(id);
   };
-  const fetchBookById = async () => {
-    const response = await axios.get(`${API_books}/${idBook}`);
-    return response.data;
-  };
-  const { data: bookDetails, isLoading } = useQuery<Book>({
-    queryKey: ["book", idBook],
-    queryFn: fetchBookById,
-    enabled: idBook !== null,
-  });
+  const { data: bookDetails, isLoading } = useBookDetails(idBook);
 
   const location = useLocation();
   const id = location.state?.id;
-
-  const { editpro, editPending } = borrowtheBook(
+  const { editpro, editPending } = useBorrowtheBook(
     { setIsModelOpen: setIsDialogOpen },
     id,
   );
@@ -65,20 +41,28 @@ function Cards() {
         {t("ourBooks")}
       </h1>
       <div className="cards section" id="LatestBooks">
-        {books.map((book: Book) => (
+        {Books.map((book: Book) => (
           <div className="card" key={book.id}>
             <div className="info-card">
-              <img src={book.cover_image_url} />
+              <div>
+                <img src={book.cover_image_url} />
+              </div>
               <div className="deatiels-card">
-                <span>
-                  {t("title")} :&nbsp;<span> {book.title}</span>
-                </span>
-                <span>
-                  {t("Author")} :&nbsp;<span> {book.author}</span>
-                </span>
-                <span>
-                  {t("ISBN")} :&nbsp;<span>{Number(book.isbn)}</span>
-                </span>
+                <div>
+                  <span>{t("title")} : </span> <span> {book.title}</span>
+                </div>
+                <div>
+                  <span>{t("Author")} : </span> <span> {book.author}</span>
+                </div>
+
+                <div>
+                  <span>{t("ISBN")} : </span>
+                  <span>{Number(book.isbn)}</span>
+                </div>
+                <div>
+                  <span>{t("pages")} : </span>
+                  <span>{book.pages}</span>
+                </div>
               </div>
             </div>
             <div className="description-card">
@@ -157,7 +141,6 @@ function Cards() {
                             className="img-detl-dialog"
                             alt=""
                           />
-
                           <Typography>
                             <strong>{t("title")}</strong> : {bookDetails.title}
                           </Typography>

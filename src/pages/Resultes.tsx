@@ -1,7 +1,4 @@
-import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { API_books } from "../services/global";
-import { useQuery } from "@tanstack/react-query";
 import type { Book } from "../services/interface";
 import { useState } from "react";
 import {
@@ -16,59 +13,33 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { borrowtheBook } from "../services/userRepo";
-import { useAuth } from "../services/AuthContext";
-
+import { useBorrowtheBook } from "../repo/BookRepo";
+import { useAuth } from "../context/AuthContext";
+import { useGetSearchResultes } from "../repo/BookRepo";
+import { useBookDetails } from "../repo/BookRepo";
 function Resultes() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [idBook, SetIdBook] = useState<number | null>(null);
   const searchState = location.state?.trim();
-  const isISBN = !isNaN(Number(searchState));
-
-  const fetchBooks = async () => {
-    const searchParams = isISBN
-      ? { isbn: Number(searchState) }
-      : { title: searchState };
-    const response = await axios.get(API_books, { params: searchParams });
-    return response.data;
-  };
-
-  const { data: foundBooks = [], isLoading: isSearchLoading } = useQuery<
-    Book[]
-  >({
-    queryKey: ["FoundBooks", searchState],
-    queryFn: fetchBooks,
-    enabled: searchState !== "",
-  });
+  const { data: foundBooks = [], isLoading } =
+    useGetSearchResultes(searchState);
+  const { data: bookDetails } = useBookDetails(String(idBook));
 
   const handleOpenDialog = (id: number) => {
     SetIdBook(id);
     setIsDialogOpen(true);
   };
 
-  const fetchBookById = async () => {
-    const response = await axios.get(`${API_books}/${idBook}`);
-    return response.data;
-  };
-
-  const { data: bookDetails, isLoading: isBookDetailsLoading } = useQuery<Book>(
-    {
-      queryKey: ["book", idBook],
-      queryFn: fetchBookById,
-      enabled: idBook !== null && isDialogOpen,
-    },
-  );
-
   const { userId } = useAuth();
-  const { editpro, editPending } = borrowtheBook(
+  const { editpro, editPending } = useBorrowtheBook(
     { setIsModelOpen: setIsDialogOpen },
     Number(userId),
   );
   return (
     <>
-      {isSearchLoading ? (
+      {isLoading ? (
         <Box sx={{ display: "flex", justifyContent: "center", my: 5 }}>
           <CircularProgress />
         </Box>
@@ -82,17 +53,26 @@ function Resultes() {
               {foundBooks.map((book: Book) => (
                 <div className="card" key={book.id}>
                   <div className="info-card">
-                    <img src={book.cover_image_url} />
+                    <div>
+                      <img src={book.cover_image_url} />
+                    </div>
                     <div className="deatiels-card">
-                      <span>
-                        {t("title")} :&nbsp;<span> {book.title}</span>
-                      </span>
-                      <span>
-                        {t("Author")} :&nbsp;<span> {book.author}</span>
-                      </span>
-                      <span>
-                        {t("ISBN")} :&nbsp;<span>{Number(book.isbn)}</span>
-                      </span>
+                      <div>
+                        <span>{t("title")} : </span> <span> {book.title}</span>
+                      </div>
+                      <div>
+                        <span>{t("Author")} : </span>{" "}
+                        <span> {book.author}</span>
+                      </div>
+
+                      <div>
+                        <span>{t("ISBN")} : </span>
+                        <span>{Number(book.isbn)}</span>
+                      </div>
+                      <div>
+                        <span>{t("pages")} : </span>
+                        <span>{book.pages}</span>
+                      </div>
                     </div>
                   </div>
                   <div className="description-card">
@@ -152,18 +132,6 @@ function Resultes() {
                               pt: 1,
                             }}
                           >
-                            {isBookDetailsLoading && (
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  justifyContent: "center",
-                                  my: 2,
-                                }}
-                              >
-                                <CircularProgress color="warning" />
-                              </Box>
-                            )}
-
                             {bookDetails && (
                               <>
                                 <img
