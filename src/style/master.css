@@ -33,6 +33,38 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+.container-home .section {
+  margin: 40px auto;
+}
+.title-section {
+  font-size: 30px;
+  border: 5px solid var(--primary-color);
+  width: fit-content;
+  padding: 15px 30px;
+  margin: auto;
+  margin-bottom: 50px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.margin-title {
+  margin-top: 40px;
+}
+.title-section:hover {
+  color: var(--seconde-color);
+  background-color: var(--white-color);
+  transition: 0.6s;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  -o-transition: 0.6s;
+  cursor: auto;
+}
+
 /* End Global */
 
 
@@ -397,43 +429,6 @@ body {
   margin: 20px 0px;
 }
 /* End Main Bannar Section  */
-
-/* Start Global */
-
-.container-home .section {
-  margin: 40px auto;
-}
-.title-section {
-  font-size: 30px;
-  border: 5px solid var(--primary-color);
-  width: fit-content;
-  padding: 15px 30px;
-  margin: auto;
-  margin-bottom: 50px;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-.margin-title {
-  margin-top: 40px;
-}
-.title-section:hover {
-  color: var(--seconde-color);
-  background-color: var(--white-color);
-  transition: 0.6s;
-  -webkit-transition: 0.6s;
-  -moz-transition: 0.6s;
-  -ms-transition: 0.6s;
-  -o-transition: 0.6s;
-  cursor: auto;
-}
-
-/* End Global*/
-
 /* Start Section Cards  */
 
 .cards {
