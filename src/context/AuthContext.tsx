@@ -8,12 +8,11 @@ interface AuthContextType {
   logout: () => void;
 }
 
-// We Create The Store to Start Collecting The Data 
+// We Create The Store to Start Collecting The Data
 const AuthContext = createContext<AuthContextType | null>(null);
 
 // Create Provider Which Will Give Us The Data From Store
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-
   // we create the id beacsue we need the to borrow book and take back the book
   const [userId, setUserIdState] = useState<string | null>(null);
 

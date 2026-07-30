@@ -4,16 +4,15 @@ import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 function MainSection() {
-
   const { t } = useTranslation();
 
-  // For Saving The Text Which Come From SearchBar 
+  // For Saving The Text Which Come From SearchBar
   const [textSearch, setTextSearch] = useState<string>("");
 
   // To Move To Another Page
   const navigate = useNavigate();
 
-  // For Save The Error Message State Because We Will Show The Appeare Message If The value of Error=true 
+  // For Save The Error Message State Because We Will Show The Appeare Message If The value of Error=true
   // OtherWise We Will Disappear it
   const [Error, SetError] = useState(false);
 
@@ -38,7 +37,7 @@ function MainSection() {
       navigate("/Resultes", { state: textSearch });
     }
   };
-  
+
   return (
     <section className="main-bannar">
       {Error && (

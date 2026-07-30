@@ -6,14 +6,14 @@ import { useAddBook, useDeleteBook } from "../repo/BookRepo";
 const Admin = () => {
   const { t } = useTranslation();
 
-  // we create this formref for collecting information  from form  
+  // we create this formref for collecting information  from form
   const formref = useRef<HTMLFormElement>(null);
   // function  Adding Book
   const { BookAdd } = useAddBook();
   //function Deleting Book
   const { DeleteBook } = useDeleteBook();
 
-  //function will send the data from form to DbBooks.json 
+  //function will send the data from form to DbBooks.json
   async function handleSubmit(e: any) {
     // to prevent clearing data from form
     e.preventDefault();
@@ -22,12 +22,12 @@ const Admin = () => {
     if (!formref.current) return;
     const formData = new FormData(formref.current);
 
-    // We select  input type = file 
+    // We select  input type = file
     const fileInput = formref.current.querySelector(
       'input[type="file"]',
     ) as HTMLInputElement;
 
-   // here we get the file from file input
+    // here we get the file from file input
     const file = fileInput?.files?.[0];
     // create this var for put image file in it
     let base64Image = "";
@@ -37,12 +37,12 @@ const Admin = () => {
       base64Image = await new Promise<string>((resolve, reject) => {
         // we create file reader Beacse this class can help up in converting
         const fileReader = new FileReader();
-         //here convert the data image for Base64
+        //here convert the data image for Base64
         fileReader.readAsDataURL(file);
 
         // then we will reszie the image to make it available for storing =>
         // because the json-server accept the imgae size until 100KB =>
-        // After this limit he will reject the image 
+        // After this limit he will reject the image
         fileReader.onload = (event) => {
           const img = new Image();
           img.src = event.target?.result as string;

@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import LogoImg from "../../public/images/logo.png";
 
 function Navbar() {
-
   //navbar Section
-  // For Save the NavBar Status If The NavBar Open Or Close 
+  // For Save the NavBar Status If The NavBar Open Or Close
   // If The Value of IsNavView = true We Will Watch The NavBar
   const [isNavView, setIsNavView] = useState(false);
   const handleShow = () => {
@@ -21,7 +20,7 @@ function Navbar() {
   const { t, i18n } = useTranslation();
 
   // We Store The Language In LocalStorage For The User To Prevent The Language From Changing =>
-  // if  the User Does Refresh For Page 
+  // if  the User Does Refresh For Page
   // Also We Here We Have The Procdure OF Changing Language & Check The General Status for it
   useEffect(() => {
     document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";

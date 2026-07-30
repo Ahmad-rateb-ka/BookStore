@@ -18,7 +18,6 @@ import { useAuth } from "../context/AuthContext";
 import { useGetSearchResultes } from "../repo/BookRepo";
 import { useBookDetails } from "../repo/BookRepo";
 
-
 function Resultes() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -27,7 +26,8 @@ function Resultes() {
   //  we recive the isbn number or name of book from main section and put it in searchstate
   const searchState = location.state?.trim();
   //  fetch the Found Books depend on serchState
-  const { data: foundBooks = [], isLoading } =useGetSearchResultes(searchState);
+  const { data: foundBooks = [], isLoading } =
+    useGetSearchResultes(searchState);
   //  to load every details that's book we want
   const { data: bookDetails } = useBookDetails(String(idBook));
   //  function openDialog
@@ -36,14 +36,14 @@ function Resultes() {
     setIsDialogOpen(true);
   };
 
-  // restore the user id to borrow if we can 
+  // restore the user id to borrow if we can
   const { userId } = useAuth();
   //  edit status of book and add to ISBNs user
   const { editpro, editPending } = useBorrowtheBook(
     { setIsModelOpen: setIsDialogOpen },
     Number(userId),
   );
-  
+
   return (
     <>
       {isLoading ? (
