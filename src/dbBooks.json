@@ -36,7 +36,7 @@
       "cover_image_url": "/images/عائد إلى حيفا.jpeg",
       "description": "رواية تجسد حب الوطن وتطرح قضية اللجوء والهوية من خلال رحلة زوجين يعودان إلى بيتهما في حيفا بعد حرب 1968.",
       "rating": 4.7,
-      "isBorrowed": true
+      "isBorrowed": false
     },
     {
       "id": "3",
@@ -55,7 +55,7 @@
       "cover_image_url": "/images/عائد إلى حارتنا.jpeg",
       "description": "رواية رمزية شهيرة تثير قضايا الوجود والعدالة الاجتماعية ونالت اهتماماً نقدياً وفكرياً واسعاً.",
       "rating": 4.5,
-      "isBorrowed": true
+      "isBorrowed": false
     },
     {
       "id": "4",
@@ -74,7 +74,7 @@
       "cover_image_url": "/images/سائق البامبو.jpeg",
       "description": "رواية حائزة على الجائزة العالمية للرواية العربية، تناقش مسألة الهوية والانتماء من خلال بطل كويتي-فلبيني.",
       "rating": 4.6,
-      "isBorrowed": true
+      "isBorrowed": false
     },
     {
       "id": "5",

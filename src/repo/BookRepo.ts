@@ -135,6 +135,7 @@ export const useFetchBooks = () => {
   return useQuery<Book[]>({
     queryKey: ["books"],
     queryFn: FetchBooks,
+    refetchInterval:500,
     refetchIntervalInBackground: true,
   });
 };
@@ -152,6 +153,7 @@ export const useGetUsers = () => {
   return useQuery<User[]>({
     queryKey: ["Users"],
     queryFn: fetchUsers,
+    refetchInterval:500,
     refetchIntervalInBackground: true,
   });
 };
@@ -162,6 +164,7 @@ export const useGetBooks = (UserID: string) => {
     queryKey: ["borrowed-books", UserID],
     queryFn: () => fetchBook(UserID),
     enabled: !!UserID,
+    refetchInterval:500,
     refetchIntervalInBackground: true,
   });
 };

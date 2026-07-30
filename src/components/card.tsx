@@ -4,9 +4,9 @@ import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import "../style/master.css";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
 import { useBorrowtheBook, useFetchBooks } from "../repo/BookRepo";
 import { useBookDetails } from "../repo/BookRepo";
+import { useAuth } from "../context/AuthContext";
 import {
   Box,
   Button,
@@ -39,13 +39,12 @@ function Cards() {
   // To Recive The ID of User From Login Page And Store It To Use Again But for 
   // Borrowing Book Beacse We Need To Know The ID Of User For Adding The Book For Him & ID Of Book 
   // To Make The Book Not Available 
-  const location = useLocation();
-  const id = location.state?.id;
-  
+  const {userId}=useAuth();
+
   // Function Edit The Borrow Book 
   const { editpro, editPending } = useBorrowtheBook(
     { setIsModelOpen: setIsDialogOpen },
-    id,
+    Number(userId),
   );
 
   return (

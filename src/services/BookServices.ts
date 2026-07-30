@@ -86,7 +86,6 @@ export const EditISBNsUserToTakeBackService = async ({
         : [],
     };
     const editResponse = await axios.put(`${API_URL}/${userId}`, updatedUser);
-    console.log(editResponse);
     return editResponse.data;
   } else {
     throw new Error("The user wasn't found");
