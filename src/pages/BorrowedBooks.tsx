@@ -4,9 +4,14 @@ import { Button } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { useTakeBackBook, useGetBooks } from "../repo/BookRepo";
 const BorrowedBooks = () => {
+
+  // for getting user id to borrowed him a book
   const { userId } = useAuth();
+  // translate
   const { t } = useTranslation();
+  // fething the books depend on user id
   const { data: Books = [] } = useGetBooks(String(userId));
+  //  for change statues Book (Available or Not Available) also depend on user id
   const { editpro, editPending } = useTakeBackBook(Number(userId));
   return (
     <div>

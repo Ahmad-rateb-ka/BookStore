@@ -5,19 +5,24 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
-import { useGetUsersLogin } from "../repo/BookRepo"; // نكتفي بالاستيراد من هنا
+import { useGetUsersLogin } from "../repo/BookRepo"; 
 import type { User } from "../services/interface";
 
 function Login() {
-  const navigate = useNavigate();
-  const [E_mail, setE_mail] = useState("");
-  const [Password, setPassword] = useState("");
-  const [Error, SetError] = useState(false);
 
-  // استدعاء الـ Hook بشكل صحيح بواسطة الأقواس ()
+  const navigate = useNavigate();
+  // to store the username from username textfiled
+  const [E_mail, setE_mail] = useState("");
+  // to store the password from password textfiled
+  const [Password, setPassword] = useState("");
+  // to show the error message if the username or password is wrong
+  const [Error, SetError] = useState(false);
+ // to fetch Users and start searching if we have this user
   const { data: users = [] } = useGetUsersLogin();
+ // to set values user name , user id and make them available in every place 
   const { setUser } = useAuth();
 
+ // to control in duration error mesage  
   useEffect(() => {
     if (Error) {
       const timer = setTimeout(() => {
@@ -27,21 +32,24 @@ function Login() {
     }
   }, [Error]);
 
+  //  function button login
   const handleLogin = async (e: any) => {
     e.preventDefault();
-
-    // نقلنا عملية البحث إلى هنا لتفادي الأخطاء أثناء تحميل الصفحة
+  // we create the constant Found User to get final result 
     const FoundUser = users.find(
       (user: User) =>
+        // compare between our info from our database with inputs from user 
         user.email.trim() === E_mail.trim() &&
         String(user.password).trim() === Password.trim(),
     );
 
-    if (FoundUser) {
-      const NameUser = FoundUser.userName.split(" ");
-      setUser(String(FoundUser.id), NameUser[0]);
-      navigate("/Home", { state: { id: FoundUser.id, userName: NameUser } });
-    } else {
+  //if the found user value  was with info so the final value is true
+  if (FoundUser) {
+    const NameUser = FoundUser.userName.split(" ");
+    setUser(String(FoundUser.id), NameUser[0]);
+    navigate("/Home", { state: { id: FoundUser.id, userName: NameUser } });
+  } else {
+ // else his value is false then we will appear for user search message 
       if (E_mail.trim() === "ahmad@gmail.com" && Password === "123") {
         navigate("/Admin");
       } else {

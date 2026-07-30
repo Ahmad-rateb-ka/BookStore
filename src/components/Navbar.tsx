@@ -4,15 +4,25 @@ import { useNavigate } from "react-router-dom";
 import LogoImg from "../../public/images/logo.png";
 
 function Navbar() {
+
   //navbar Section
-  const [isVisNav, setIsVisNav] = useState(false);
+  // For Save the NavBar Status If The NavBar Open Or Close 
+  // If The Value of IsNavView = true We Will Watch The NavBar
+  const [isNavView, setIsNavView] = useState(false);
   const handleShow = () => {
-    isVisNav ? setIsVisNav(false) : setIsVisNav(true);
+    isNavView ? setIsNavView(false) : setIsNavView(true);
   };
 
   // tranlation Section
+  // For Save The Languge Chosen
   const [Language, setLanguage] = useState<string>("");
+  // We use the "t" for Switching the Language &
+  // We use the  "i18n" for Changing Language And Check if We Have The Language Chose previously
   const { t, i18n } = useTranslation();
+
+  // We Store The Language In LocalStorage For The User To Prevent The Language From Changing =>
+  // if  the User Does Refresh For Page 
+  // Also We Here We Have The Procdure OF Changing Language & Check The General Status for it
   useEffect(() => {
     document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
     document.body.lang = i18n.language;
@@ -34,7 +44,7 @@ function Navbar() {
           <span></span>
           <span></span>
         </div>
-        <ul className={`${isVisNav ? "show" : ""}`}>
+        <ul className={`${isNavView ? "show" : ""}`}>
           <li
             onClick={() => {
               navigate("/BorrowedBooks");

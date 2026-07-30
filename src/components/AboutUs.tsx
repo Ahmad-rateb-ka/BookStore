@@ -3,7 +3,6 @@ import About from "../../public/images/AboutUs3.png";
 
 function AboutUs() {
   const { t } = useTranslation();
-
   return (
     <>
       <div className="About-Us section" id="About-Us">

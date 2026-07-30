@@ -9,9 +9,7 @@
       "avatar": "/images/user1.jpg",
       "Job": "Researcher ",
       "feedback": "This bookstore warehouse is an absolute gem for all book lovers! Their massive collection spans every genre imaginable, and everything is perfectly organized. My order arrived incredibly fast, beautifully packaged, and in pristine condition—I highly recommend them!",
-      "ISBNs": [
-        9789953892429
-      ]
+      "ISBNs": []
     },
     {
       "id": "2",

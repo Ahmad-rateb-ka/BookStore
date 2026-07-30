@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 
+// Here We Create The Type Of Inforamtion include in AuthContext
 interface AuthContextType {
   userId: string | null;
   userName: string | null;
@@ -7,12 +8,19 @@ interface AuthContextType {
   logout: () => void;
 }
 
+// We Create The Store to Start Collecting The Data 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+// Create Provider Which Will Give Us The Data From Store
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+
+  // we create the id beacsue we need the to borrow book and take back the book
   const [userId, setUserIdState] = useState<string | null>(null);
+
+  // we create the user name for storing in auth & showing in main section
   const [userName, setUserNameState] = useState<string | null>(null);
 
+  //  here we check if we have old values in local storage we will refresh our values like username , id
   useEffect(() => {
     const savedId = localStorage.getItem("user_id");
     const savedName = localStorage.getItem("user_name");
@@ -22,6 +30,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, []);
 
+  // we set the values of username and id in this function with update the value in local storage
   const setUser = (id: string | null, Fullname: string | null) => {
     setUserIdState(id);
     setUserNameState(Fullname);
@@ -35,6 +44,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  //here we will reset the value in this function
   const logout = () => {
     setUserIdState(null);
     setUserNameState(null);

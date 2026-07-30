@@ -18,18 +18,31 @@ import {
   Typography,
 } from "@mui/material";
 function Cards() {
+
   const { t, i18n } = useTranslation();
+  // For Saving The Dialog Statues
   const [isDiaologOpen, setIsDialogOpen] = useState(false);
+  // To Fetch Every Book From DataBase Show The Books
   const { data: Books = [] } = useFetchBooks();
+  // To Save The ID of Book And pass it to useBookDetails
   const [idBook, SetIdBook] = useState<string>("");
+
+  //  Function Open Dialig Details Book and show Details Books
   const handleOpenDialog = (id: string) => {
     setIsDialogOpen(true);
     SetIdBook(id);
   };
+
+  // Loading the Details Of Book By Get The ID of Book
   const { data: bookDetails, isLoading } = useBookDetails(idBook);
 
+  // To Recive The ID of User From Login Page And Store It To Use Again But for 
+  // Borrowing Book Beacse We Need To Know The ID Of User For Adding The Book For Him & ID Of Book 
+  // To Make The Book Not Available 
   const location = useLocation();
   const id = location.state?.id;
+  
+  // Function Edit The Borrow Book 
   const { editpro, editPending } = useBorrowtheBook(
     { setIsModelOpen: setIsDialogOpen },
     id,

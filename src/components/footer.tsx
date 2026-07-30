@@ -51,12 +51,12 @@ function Footer() {
             </div>
           </div>
           <div className="box footer-gallery">
-            <img src="../../public/images/a1.jpg" alt="" />
-            <img src="../../public/images/a2.jpg" alt="" />
-            <img src="../../public/images/a4.jpg" alt="" />
-            <img src="../../public/images/a5.jpg" alt="" />
-            <img src="../../public/images/a7.jpg" alt="" />
-            <img src="../../public/images/a8.jpg" alt="" />
+            <img src="/public/images/footer1.jpg" alt="" />
+            <img src="/public/images/footer2.jpg" alt="" />
+            <img src="/public/images/footer3.jpg" alt="" />
+            <img src="/public/images/footer4.jpg" alt="" />
+            <img src="/public/images/footer5.jpg" alt="" />
+            <img src="/public/images/footer6.jpg" alt="" />
           </div>
         </div>
         <p className="copyright">Made With &copy; Eng.Ahmad Rateb Kassoumeh</p>
