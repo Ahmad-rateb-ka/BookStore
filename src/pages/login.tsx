@@ -48,10 +48,10 @@ function Login() {
       setUser(String(FoundUser.id), NameUser[0]);
       navigate("/Home", { state: { id: FoundUser.id, userName: NameUser } });
     } else {
-      // else his value is false then we will appear for user search message
       if (E_mail.trim() === "ahmad@gmail.com" && Password === "123") {
         navigate("/Admin");
       } else {
+        // else his value is false then we will appear for user search message
         SetError(true);
       }
     }

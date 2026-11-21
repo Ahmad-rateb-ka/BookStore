@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // we create the user name for storing in auth & showing in main section
   const [userName, setUserNameState] = useState<string | null>(null);
 
-  //  here we check if we have old values in local storage we will refresh our values like username , id
+  //  here we check if we have old values in local storage we will update our values like username , id
   useEffect(() => {
     const savedId = localStorage.getItem("user_id");
     const savedName = localStorage.getItem("user_name");

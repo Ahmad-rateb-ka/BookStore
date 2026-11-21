@@ -60,7 +60,7 @@ function Cards() {
               </div>
               <div className="deatiels-card">
                 <div>
-                  <span>{t("title")} : </span> <span> {book.title}</span>
+                  <span className="Title_test">{t("title")} : </span> <span> {book.title}</span>
                 </div>
                 <div>
                   <span>{t("Author")} : </span> <span> {book.author}</span>

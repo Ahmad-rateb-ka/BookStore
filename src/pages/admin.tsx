@@ -35,7 +35,7 @@ const Admin = () => {
     if (file) {
       // if the file has info we will start in converting Procedure
       base64Image = await new Promise<string>((resolve, reject) => {
-        // we create file reader Beacse this class can help up in converting
+        // we create file reader Beacse this class can help us in converting
         const fileReader = new FileReader();
         //here convert the data image for Base64
         fileReader.readAsDataURL(file);

@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 function MainSection() {
   const { t } = useTranslation();
 
-  // For Saving The Text Which Come From SearchBar
+  // For Saving The Text Which Comes From SearchBar
   const [textSearch, setTextSearch] = useState<string>("");
 
   // To Move To Another Page
@@ -16,7 +16,7 @@ function MainSection() {
   // OtherWise We Will Disappear it
   const [Error, SetError] = useState(false);
 
-  // For Control IN Duration Showing The Error Message
+  // For Control In Duration Showing The Error Message
   useEffect(() => {
     if (Error) {
       const timer = setTimeout(() => {

@@ -33,10 +33,7 @@ export const DeleteService = {
 
 //first thing we shoud edit info of book
 export const BorrowBookService = async (updatedBook: Book) => {
-  const response = await axios.put(
-    `${API_books}/${updatedBook.id}`,
-    updatedBook,
-  );
+  const response = await axios.put(`${API_books}/${updatedBook.id}`, updatedBook,);
   return { responseData: response.data, updatedBook };
 };
 export const EditISBNsUserToBorrowService = async ({
