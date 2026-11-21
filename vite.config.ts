@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: "/BookStore/", 
+  base: "/https://ahmad-rateb-ka.github.io/BookStore//", 
 })
