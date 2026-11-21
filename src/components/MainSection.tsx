@@ -30,7 +30,7 @@ function MainSection() {
   const { userName } = useAuth();
 
   // Function For Moving To Resultes Page Then There We Will Search On Book
-  const handleSearch = (TextSearch: string) => {
+  const handleSearch = () => {
     if (textSearch === "") {
       SetError(true);
     } else {
@@ -62,7 +62,7 @@ function MainSection() {
             />
             <button
               onClick={() => {
-                handleSearch(textSearch);
+                handleSearch();
               }}
             >
               <FaSearch />
