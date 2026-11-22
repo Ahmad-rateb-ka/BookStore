@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import { useTakeBackBook, useGetBooks } from "../repo/BookRepo";
+import { getImageUrl } from "../utils/imags";
 const BorrowedBooks = () => {
   // for getting user id to borrowed him a book
   const { userId } = useAuth();
@@ -22,7 +23,7 @@ const BorrowedBooks = () => {
           <div className="card" key={book.id}>
             <div className="info-card">
               <div>
-                <img src={book.cover_image_url} />
+                <img src={getImageUrl(book.cover_image_url)} />
               </div>
               <div className="deatiels-card">
                 <div>

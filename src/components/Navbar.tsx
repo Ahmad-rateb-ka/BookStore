@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import LogoImg from "../../public/images/logo.png";
+import { getImageUrl } from "../utils/imags";
 
 function Navbar() {
   //navbar Section
@@ -34,7 +35,7 @@ function Navbar() {
   return (
     <nav className="main-nav">
       <div className="logoDiv">
-        <img src={LogoImg} alt="" />
+        <img src={getImageUrl(LogoImg)} alt="" />
         {t("Book-store")}
       </div>
       <div className="eles-nav">

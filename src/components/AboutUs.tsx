@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import About from "../../public/images/AboutUs3.png";
+import { getImageUrl } from "../utils/imags";
 
 function AboutUs() {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ function AboutUs() {
           <a href="mailto:ahmad@gmail.com">{t("about-us-link")}</a>
         </div>
         <div className="img">
-          <img src={About} alt="" />
+          <img src={getImageUrl(About)} alt="" />
         </div>
       </div>
     </>

@@ -2,6 +2,7 @@ import { FaStar } from "react-icons/fa";
 import type { User } from "../services/interface";
 import { useTranslation } from "react-i18next";
 import { useGetUsers } from "../repo/BookRepo";
+import { getImageUrl } from "../utils/imags";
 function Testimonials() {
   const { t } = useTranslation();
 
@@ -15,7 +16,7 @@ function Testimonials() {
         <div className="container-boxes">
           {users.map((user: User) => (
             <div className="box" key={user.id}>
-              <img src={user.avatar} />
+              <img src={getImageUrl(user.avatar)} />
               <h3>{user.fullName}</h3>
               <span className="title">{user.Job}</span>
               <div className="rate">
