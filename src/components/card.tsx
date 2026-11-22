@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useBorrowtheBook, useFetchBooks } from "../repo/BookRepo";
 import { useBookDetails } from "../repo/BookRepo";
 import { useAuth } from "../context/AuthContext";
+import { getImageUrl } from "../utils/imags"
 import {
   Box,
   Button,
@@ -56,7 +57,7 @@ function Cards() {
           <div className="card" key={book.id}>
             <div className="info-card">
               <div>
-                <img src={book.cover_image_url} />
+                <img src={getImageUrl(book.cover_image_url)} />
               </div>
               <div className="deatiels-card">
                 <div>
@@ -148,7 +149,7 @@ function Cards() {
                       {!isLoading && bookDetails && (
                         <>
                           <img
-                            src={bookDetails.cover_image_url}
+                            src={getImageUrl(bookDetails.cover_image_url)}
                             className="img-detl-dialog"
                             alt=""
                           />

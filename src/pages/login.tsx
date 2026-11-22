@@ -7,6 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
 import { useGetUsersLogin } from "../repo/BookRepo";
 import type { User } from "../services/interface";
+import { getImageUrl } from "../utils/imags";
 
 function Login() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function Login() {
     <>
       <div className="container">
         <div className="form">
-          <img src={LogoImg} alt="" />
+          <img src={getImageUrl(LogoImg)} alt="" />
           <h1>{t("Book-store")}</h1>
           <form action="" onSubmit={handleLogin}>
             <label htmlFor="userName">{t("userName")}</label>

@@ -17,6 +17,7 @@ import { useBorrowtheBook } from "../repo/BookRepo";
 import { useAuth } from "../context/AuthContext";
 import { useGetSearchResultes } from "../repo/BookRepo";
 import { useBookDetails } from "../repo/BookRepo";
+import { getImageUrl } from "../utils/imags";
 
 function Resultes() {
   const location = useLocation();
@@ -61,7 +62,7 @@ function Resultes() {
                 <div className="card" key={book.id}>
                   <div className="info-card">
                     <div>
-                      <img src={book.cover_image_url} />
+                      <img src={getImageUrl(book.cover_image_url)} />
                     </div>
                     <div className="deatiels-card">
                       <div>
