@@ -143,7 +143,7 @@ function Resultes() {
                             {bookDetails && (
                               <>
                                 <img
-                                  src={bookDetails.cover_image_url}
+                                  src={getImageUrl(bookDetails.cover_image_url)}
                                   className="img-detl-dialog"
                                   alt=""
                                 />

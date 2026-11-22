@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import About from "../../public/images/AboutUs3.png";
-import { getImageUrl } from "../utils/imags";
+
 
 function AboutUs() {
   const { t } = useTranslation();

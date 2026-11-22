@@ -1,7 +1,17 @@
-export const getImageUrl = (url: string) => {
-  if (url.startsWith("data:image") || url.startsWith("http")) {
+export const getImageUrl = (url: string | null | undefined): string | undefined => {
+  if (!url?.trim()) return undefined;
+
+  if (
+    url.startsWith("data:") ||
+    url.startsWith("http://") ||
+    url.startsWith("https://") ||
+    url.startsWith("//")
+  ) {
     return url;
   }
 
-  return `${import.meta.env.BASE_URL}${url.replace(/^\/(?:public\/)?/, "")}`;
+  const baseUrl = import.meta.env.BASE_URL;
+  if (url.startsWith(baseUrl)) return url;
+
+  return `${baseUrl}${url.replace(/^\/?(?:public\/)?/, "")}`;
 };
