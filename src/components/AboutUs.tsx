@@ -13,7 +13,7 @@ function AboutUs() {
           <a href="mailto:ahmad@gmail.com">{t("about-us-link")}</a>
         </div>
         <div className="img">
-          <img src={getImageUrl(About)} alt="" />
+          <img src={About} alt="" />
         </div>
       </div>
     </>
